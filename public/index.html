@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="MobileOptimized" content="720">
+        <meta
+            name="google-site-verification"
+            content="66_-k29Lo6m_Z3wRVPNfKjYuNLk4Hkpw0g08g220VE4"/>
+        <!--https://cyivacom.firebaseapp.com/ -->
+        <!--"firebase deploy" command is uplord this site-->
+        <!--google-site-verification=GabrrK1tMJShnvg72OcVJr4ZvXQHAiXtI1I7SU9lpmc-->
+        <!--github-->
+        <base href="/">
+        <meta charset="utf-8">
+
+        <!--"width=device-width, initial-scale=1.0"-->
+        <title>fuck you firebase</title>
+
+        <!-- update the version number as needed -->
+        <script src="/__/firebase/7.6.1/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script src="/__/firebase/7.6.1/firebase-auth.js"></script>
+        <script src="/__/firebase/7.6.1/firebase-database.js"></script>
+        <script src="/__/firebase/7.6.1/firebase-messaging.js"></script>
+        <script src="/__/firebase/7.6.1/firebase-storage.js"></script>
+        <!-- initialize the SDK after all desired features are loaded -->
+        <script src="/__/firebase/init.js"></script>
+        <script scr="https://www.gstatic.com/firebasejs/7.6.1/firebase.js"></script>
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any
+        Firebase services -->
+
+        <!--firebase firestore-->
+        <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+        <script text="text/javascript">
+            //const firebase = require("firebase"); require("firebase/firestore");
+        </script>
+
+        <!-- Previously loaded Firebase SDKs -->
+
+        <!--jquery <script defer="defer"
+        src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+
+        <!--jquery-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+        <!--google login-->
+        <script src="https://apis.google.com/js/platform.js" async="async"></script>
+        <meta
+            name="google-signin-client_id"
+            content="738090827385-ddp6u8ir93dn7k0efe5theqgupr18n5s.apps.googleusercontent.com">
+
+        <script type="text/javascript"></script>
+
+        <script src="https://apis.google.com/js/platform.js" async="async"></script>
+
+        <meta
+            name="google-signin-client_id"
+            content="738090827385-ddp6u8ir93dn7k0efe5theqgupr18n5s.apps.googleusercontent.com">
+
+        <style media="screen">
+            body {
+                background: #ECEFF1;
+                color: rgba(0,0,0,0.87);
+                font-family: Roboto, Helvetica, Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                max-width: 100%;
+                max-height: 100%;
+                overflow-y: scroll;
+                overflow-x: scroll;
+            }
+            #g-signin2 {
+                background-origin: padding-box;
+                text-align: center;
+                position: relative;
+                z-index: 13;
+                width: 20%;
+                height: 100%;
+            }
+            #user_interface {
+                left: 0;
+                right: 0;
+                top: 0;
+                color: darksalmon;
+                position: absolute;
+                z-index: 12;
+                border: 1px solid;
+                padding: 10px;
+                background-color: antiquewhite;
+            }
+            #generate_bric_id {
+                height: 10%;
+                width: 10%;
+                font-size: 100%;
+                color: chartreuse;
+                z-index: 110;
+                background-color: white;
+                left: 90%;
+                top: 90%;
+                position: absolute;
+            }
+            #center_id {
+                height: 100%;
+                width: 10%;
+                z-index: 13;
+                fill: white;
+                background-color: white;
+                position: absolute;
+                left: 40%;
+                top: 1%;
+            }
+            #load_id {
+                height: 100%;
+                width: 10%;
+                z-index: 13;
+                fill: white;
+                background-color: white;
+                position: absolute;
+                left: 50%;
+                top: 1%;
+            }
+            #save_id {
+                height: 100%;
+                width: 10%;
+                z-index: 13;
+                fill: white;
+                background-color: white;
+                position: absolute;
+                left: 60%;
+                top: 1%;
+            }
+            #new_id {
+                height: 100%;
+                width: 10%;
+                z-index: 13;
+                fill: white;
+                background-color: white;
+                position: absolute;
+                left: 70%;
+                top: 1%;
+            }
+            #minus_id{
+                height: 100%;
+                width: 10%;
+                z-index: 13;
+                fill: white;
+                background-color: white;
+                position: absolute;
+                left: 80%;
+                top: 1%;
+            }
+            #plus_id{
+                height: 100%;
+                width: 10%;
+                z-index: 13;
+                fill: white;
+                background-color: white;
+                position: absolute;
+                left: 90%;
+                top: 1%;
+            }
+            #lord_window_id {
+                fill: aliceblue;
+                width: 50%;
+                height: 50%;
+                z-index: 100;
+                position: fixed;
+                left: 25%;
+                top: 25%;
+                background-color: aliceblue;
+                display: none;
+            }
+            #lord_window_off_id {
+                fill: red;
+                width: 20%;
+                height: 5%;
+                z-index: 101;
+                position: absolute;
+                left: 80%;
+                top: 0;
+                background-color: red;
+                display: none;
+            }
+            #save_button_id {
+                fill: brown;
+                background-color: brown;
+                left: 60%;
+                top: 1%;
+                width: 5%;
+                height: 100%;
+                z-index: 13;
+                position: relative;
+            }
+            #login_pack_id {
+                height: 100%;
+                width: 20%;
+                z-index: 13;
+                top: 1%;
+                left: 1%;
+                position: absolute;
+            }
+            #logout_tap {
+                height: 100%;
+                width: 100%;
+                z-index: 13;
+                text-align: center;
+                line-height: 200%;
+                position: absolute;
+            }
+            #canvas_id {
+                height: 600px;
+                width: 600px;
+                background-color: floralwhite;
+                z-index: 1;
+                left: 100px;
+                top: 100px;
+                touch-action: none;
+                transform-origin: 50% 50%;
+                transform: scale(1);
+            }
+            #zero_xy_id {
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 14;
+                color: red;
+                fill: red;
+                border: 1px solid;
+            }
+            #line_canvas_id {
+                z-index: -1;
+                pointer-events: none;
+            }
+            #new_window_id {
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 45%;
+                z-index: 100;
+                height: 10%;
+                fill: black;
+                background-color: aliceblue;
+            }
+            #project_name_id {
+                z-index: 100;
+                width: 85%;
+                height: 90%;
+                top: 5%;
+                background-color: cornsilk;
+                position: absolute;
+                font-size: 8vh;
+            }
+            #project_start_input_id {
+                z-index: 100;
+                width: 10%;
+                height: 80%;
+                left: 90%;
+                top: 10%;
+                position: absolute;
+            }
+            #loadselect_id{
+                width: 10%;
+                height: 5%;
+                z-index: 102;
+                position: relative;
+            }
+            #delete_select_id{
+                width: 10%;
+                height: 5%;
+                z-index: 102;
+                left: 10%;
+                position: relative;
+            }
+            #loadlistID{
+                top: 5%;
+                width: 100%;
+                height: 10%;
+                z-index: 102;
+                position: relative;
+            }
+            .option_bric {
+                width: 50px;
+                height: 50px;
+                color: black;
+                fill: white;
+                border: 1px solid;
+                border-radius: 50%;
+                z-index: 11;
+                position: absolute;
+                display: table;
+            }
+            .option_bric p {
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+
+                position: fixed;
+            }
+            .intance_line_class {
+                background-color: white;
+                border: 1px solid black;
+                height: 100px;
+                width: 50px;
+                left: 0;
+                top: 0;
+                z-index: 9;
+                position: absolute;
+            }
+            .intance_bric_class {
+                background-color: white;
+                border: 1px solid black;
+                height: 150px;
+                width: 150px;
+                left: 10px;
+                right: 10px;
+                position: absolute;
+                z-index: 10;
+                overflow: hidden;
+                word-wrap: break-word;
+            }
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+
+                height: 3%;
+                display: flex;
+
+            }
+        </style>
+
+        <style type="text/css"></style>
+
+    </head>
+    <script>
+        $(document).ready(function () {
+            $('#canvas_id').width($(window).width());
+            $('#canvas_id').height($(window).height());
+            document.body.style.width = $(window).width();
+            document.body.style.height = $(window).height();
+
+        });
+    </script>
+    <button
+    name="generate_bric"
+    id="generate_bric_id"
+    class="generate_bric_class"
+    ondragstart="return false"
+    onclick="generate_bric_function()">add bric</button>
+    <header ondragstart="return false" name="ui" id="user_interface">
+
+        <a id="kakao-login-btn" style="display: block;"></a>
+        <a href="http://developers.kakao.com/logout"></a>
+        
+        <button name="center_button" id="center_id">center</button>
+        <button name="load_button" id="load_id">load</button>
+        <button name="save_button" id="save_id">save</button>
+        <button name="new_button" id="new_id">new</button>
+        <button name="minus_button" id="minus_id">minus</button>
+        <button name="minus_button" id="plus_id">plus</button>
+    </header>
+    <div
+        name="new_window"
+        id="new_window_id"
+        onresize="parent.resizeTo($(window).width(),$(window).height()*0.1)"
+        onload="parent.resizeTo($(window).width(),$(window).height()*0.1)">
+        <input name="project_name" id="project_name_id" placeholder="project name">
+        <button name="project_start_input" id="project_start_input_id">new</button>
+    </div>
+    <body
+        ondragstart="return false"
+        onselect="return false"
+        onresize="parent.resizeTo($(window).width(),$(window).height())"
+        onload="parent.resizeTo($(window).width(),$(window).height())"
+        style="overflow-x: hidden;overflow-y: hidden;">
+
+        <script>
+            //html 실행시 바로 시작되는 함수, 로드시 다르게 만들어야함
+            window.onload = function () {}
+        </script>
+        <script type="text/javascript">
+            function machinetest() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                )
+            }
+        </script>
+
+        <div name="lord_window" id="lord_window_id">
+            <button
+                name="lord_window_off"
+                id="lord_window_off_id"
+                >
+            </button>
+            <button id="loadselect_id" name="loadselectbutton">
+                select
+            </button>
+            <button id="delete_select_id" name="delete_select_name">
+                delete
+            </button>
+            <select name="loadlist" id="loadlistID">
+                <option value="1" selected>-select-</option>
+            </select>
+        </div>
+
+        <div ondragstart="return false" name="canvas" id="canvas_id">
+
+            <div
+                ondragstart="return false"
+                name="zero_xy_div"
+                id="zero_xy_id"
+                class="zero_xy_class">
+                <div ondragstart="return false" class="option_bric" id="option_line">
+                    <p>
+                        line</p>
+                </div>
+                <div ondragstart="return false" class="option_bric" id="option_delete">
+                    <p>
+                        delete</p>
+                </div>
+                <div ondragstart="return false" class="option_bric" id="option_text">
+                    <p>
+                        text</p>
+                </div>
+                <div
+                    id="size_id"
+                    style="width: 30px;height: 30px;fill: black;border: 1px solid;position: absolute;z-index: 11;"></div>
+                <canvas ondragstart="return false" name="line_canvas" id="line_canvas_id"></canvas>
+
+            </div>
+
+        </div>
+        <script>
+            var counting_num = 0;
+            var size_bool = false;
+            var nowzoom = 100;
+            var client_user_id = null;
+            var client_name = null;
+
+            $('html, body').addClass('hidden');
+
+            //창 열때 발동하는 함수
+            window.onload = function () {
+                $("#generate_bric_id").height($("#generate_bric_id").width());
+                $("#generate_bric_id").offset({top:$(window).height()-$("#generate_bric_id").width()});
+                $('meta[name=viewport').attr(
+                    'content',
+                    '"width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.' +
+                            '0, maximum-scale=1.0, user-scalable=no"'
+                )
+
+                document
+                    .getElementById("new_window_id")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("project_name_id")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("project_start_input_id")
+                    .style
+                    .display = "none";
+
+                document
+                    .getElementById("save_id")
+                    .addEventListener("click", function () {
+                        project_save()
+                    })
+                document
+                    .getElementById("load_id")
+                    .addEventListener("click", function () {
+                        project_load();
+                        document
+                            .getElementById("lord_window_id")
+                            .style
+                            .display = "block";
+                        document
+                            .getElementById("lord_window_off_id")
+                            .style
+                            .display = "block";
+                    })
+                document.getElementById("loadselect_id").addEventListener("click",function(){
+                    project_bric_load($("#loadlistID").val());
+                    document
+                            .getElementById("lord_window_id")
+                            .style
+                            .display = "none";
+                        document
+                            .getElementById("lord_window_off_id")
+                            .style
+                            .display = "none";
+                    event.preventDefault
+                })
+                document.getElementById("delete_select_id").addEventListener("click",function(){
+                    project_delete($("#loadlistID").val());
+                    document
+                            .getElementById("lord_window_id")
+                            .style
+                            .display = "none";
+                        document
+                            .getElementById("lord_window_off_id")
+                            .style
+                            .display = "none";
+                    event.preventDefault
+                })
+                document
+                    .getElementById("lord_window_off_id")
+                    .addEventListener("click", function () {
+                        document
+                            .getElementById("lord_window_id")
+                            .style
+                            .display = "none";
+                        document
+                            .getElementById("lord_window_off_id")
+                            .style
+                            .display = "none";
+                    })
+                document
+                    .getElementById("new_id")
+                    .addEventListener("click", function () {
+                        if (client_user_id != null) {
+                            $("#new_window_id").width($(window).width());
+                            $("#new_window_id").height($(window).height() * 0.1);
+                            $("#new_window_id").position({
+                                top: $(window).height() * 0.45
+                            });
+                            document
+                                .getElementById("new_window_id")
+                                .style
+                                .display = "block";
+                            document
+                                .getElementById("project_name_id")
+                                .style
+                                .display = "block";
+                            document
+                                .getElementById("project_start_input_id")
+                                .style
+                                .display = "block";
+                        }
+                    })
+                document.getElementById("minus_id").addEventListener("click",function(){
+                    canvas_scale_minus();
+                })
+                document.getElementById("plus_id").addEventListener("click",function(){
+                    canvas_scale_plus();
+                })
+                document
+                    .getElementById("project_start_input_id")
+                    .addEventListener("click", function () {
+                        client_name = $("#project_name_id").val();
+                        document
+                            .getElementById("new_window_id")
+                            .style
+                            .display = "none";
+                        document
+                            .getElementById("project_name_id")
+                            .style
+                            .display = "none";
+                        document
+                            .getElementById("project_start_input_id")
+                            .style
+                            .display = "none";
+                    })
+                document
+                    .getElementById("center_id")
+                    .addEventListener("click", function () {
+                        canvas_center_function()
+                    });
+                //test pointer move function
+                document
+                    .body
+                    .addEventListener("pointermove", function () {
+                        //console.log("pointermove")
+                    })
+                $("#user_interface").on('scroll touchmove mousewheel', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                })
+                $("#new_window_id").on('scroll touchmove mousewheel', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                })
+                $("#project_name_id").on('scroll touchmove mousewheel', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    return false;
+                })
+                $("#project_start_input_id").on(
+                    'scroll touchmove mousewheel',
+                    function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        return false;
+                    }
+                )
+
+                var start_X = 0;
+                var start_Y = 0;
+                var pointerbool = false;
+
+                option_bric_unable();
+                bric_class_add();
+                document
+                    .getElementById("canvas_id")
+                    .addEventListener("pointerdown", function (event) {
+                        if (size_bool == false) {
+                            var target_save = event.currentTarget;
+                            var rectX = ($("#" + target_save.id).offset().left);
+                            var rectY = ($("#" + target_save.id).offset().top);
+
+                            start_X = event.offsetX;
+                            start_Y = event.offsetY;
+                            pointerbool = true;
+                        }
+                    });
+
+                var counting_num = 0;
+                //캔바스 이동시 움직이는거 트랙킹하는 함수
+                document
+                    .getElementById("canvas_id")
+                    .addEventListener("pointermove", function (event) {
+                        if (size_bool == false) {
+                            if (pointerbool == true) {
+                                var target_save = event.currentTarget;
+                                $('#' + event.currentTarget.id).offset({
+                                    left: event.clientX - start_X
+                                });
+                                $('#' + event.currentTarget.id).offset({
+                                    top: event.clientY - start_Y
+                                });
+                                counting_num += 1;
+                                event.stopPropagation;
+                            }
+                        }
+                    });
+                //캔바스 이동시 끝내는 함수
+                document
+                    .getElementById("canvas_id")
+                    .addEventListener("pointerup", function (event) {
+                        if (size_bool == false) {
+                            if (pointerbool == true) {
+                                start_X = 0;
+                                start_Y = 0;
+                                canvas_scale_function();
+                                pointerbool = false;
+                                $("canvas").attr("width", $("#canvas_id").width());
+                                $("canvas").attr("height", $("#canvas_id").height());
+
+                                $("#line_canvas_id").offset({
+                                    left: $("#canvas_id")
+                                        .offset()
+                                        .left
+                                });
+                                $("#line_canvas_id").offset({
+                                    top: $("#canvas_id")
+                                        .offset()
+                                        .top
+                                });
+
+                                line_draw_function();
+                                //화면 위치 고정을 위한 함수
+                                document
+                                    .getElementById('user_interface')
+                                    .focus();
+                                document
+                                    .getElementById('user_interface')
+                                    .scrollIntoView();
+                            }
+                        }
+                    });
+
+                document
+                    .getElementById("zero_xy_id")
+                    .addEventListener("pointerdown", function () {
+                        //event.stopPropagation()
+                    });
+                document
+                    .getElementById("zero_xy_id")
+                    .addEventListener("pointermove", function () {
+                        event.stopPropagation()
+                    });
+                document
+                    .getElementById("zero_xy_id")
+                    .addEventListener("pointerup", function () {
+                        //event.stopPropagation()
+                    });
+                function object_down_function(evnet) {}
+                function object_move_function() {}
+                function object_up_function() {}
+            }
+
+            //캔바스 크기 넓혀 주는 함수
+            function canvas_scale_function() {
+                var div_setup = $("#canvas_id");
+                var centerX = div_setup.width() / 2 + div_setup
+                    .offset()
+                    .left;
+                var centerY = div_setup.height() / 2 + div_setup
+                    .offset()
+                    .top;
+
+                var canvas_scale_edge = new Array();
+                canvas_scale_edge[0] = new Array();
+                canvas_scale_edge[1] = new Array();
+                canvas_scale_edge[2] = new Array();
+                canvas_scale_edge[3] = new Array();
+                //0번 왼쪽 위 1번 오른쪽 위 2번 왼쪽 아래 3번 오른쪽 아래 0번 x 1번 y
+                canvas_scale_edge[0][0] = 0;
+                canvas_scale_edge[0][1] = 0;
+                canvas_scale_edge[1][0] = $(window).width();
+                canvas_scale_edge[1][1] = 0;
+                canvas_scale_edge[2][0] = 0;
+                canvas_scale_edge[2][1] = $(window).height();
+                canvas_scale_edge[3][0] = $(window).width();
+                canvas_scale_edge[3][1] = $(window).height();
+                //빈공간 처리법
+                var index_scale;
+                //오른쪽
+                if (centerX + (div_setup.width()) / 2 < canvas_scale_edge[1][0]) {
+                    index_scale = canvas_scale_edge[1][0] - centerX;
+                    div_setup.width(index_scale * 2);
+                }
+                //왼쪽
+                if (centerX - (div_setup.width()) / 2 > canvas_scale_edge[0][0]) {
+                    index_scale = canvas_scale_edge[0][0] + centerX;
+                    div_setup.width(index_scale * 2);
+                }
+                //위
+                if (centerY - (div_setup.height()) / 2 > canvas_scale_edge[0][1]) {
+                    index_scale = canvas_scale_edge[0][1] + centerY;
+                    div_setup.height(index_scale * 2);
+                }
+                //아래
+                if (centerY + (div_setup.height()) / 2 < canvas_scale_edge[2][1]) {
+                    index_scale = canvas_scale_edge[2][1] - centerY;
+                    div_setup.height(index_scale * 2);
+                }
+                div_setup.offset({
+                    left: centerX - (div_setup.width()) / 2
+                });
+                div_setup.offset({
+                    top: centerY - (div_setup.height()) / 2
+                });
+
+            }
+            // http://blog.naver.com/PostView.nhn?blogId=magnking&logNo=220946313981&redir
+            // ect=Dlog&widgetTypeCall=true&directAccess=false 선그리기 다음에 보고 공부해 앞으로 해야할것 선그리기
+            // 블럭삭제 블럭내용추가방법 계정이랑 데이터 연동
+            var pointerbricbool;
+            var pointerbric_option_bool;
+            var option_bric_visible_bool = false;
+            var bric_start_X = 0;
+            var bric_start_Y = 0;
+            function pointer_start() {
+                if (size_bool == false) {
+                    var target_save = event.currentTarget;
+                    option_bric_unable();
+
+                    bric_start_X = event.offsetX;
+                    bric_start_Y = event.offsetY;
+                    pointerbricbool = true;
+                    pointerbric_option_bool = true;
+                    event.stopPropagation();
+                }
+                event.stopPropagation();
+            }
+            function pointer_move() {
+                if (size_bool == false) {
+                    if (pointerbricbool == true) {
+                        pointerbric_option_bool = false;
+                        option_bric_visible_bool = false;
+                        option_bric_unable();
+                        var target_save = event.currentTarget;
+                        $('#' + event.currentTarget.id).offset({
+                            left: event.clientX - bric_start_X
+                        });
+                        $('#' + event.currentTarget.id).offset({
+                            top: event.clientY - bric_start_Y
+                        });
+                        counting_num += 1;
+                        line_draw_function()
+                        event.stopPropagation();
+                    }
+                }
+                event.stopPropagation();
+            }
+            function pointer_up() {
+                if (size_bool == false) {
+                    if (pointerbricbool == true) {
+                        bric_start_X = 0;
+                        bric_start_Y = 0;
+                        pointerbricbool = false;
+                        event.stopPropagation();
+                        setting_function();
+                    }
+                    if (pointerbric_option_bool == true) {
+                        var target_save = event.currentTarget;
+                        if (line_end_onoff == true) {
+
+                            var delete_for_bool = false;
+                            for (
+                                var first_for = 0;
+                                first_for < line_point_array[0].length - 1;
+                                first_for++
+                            ) {
+                                if (line_point_array[0][first_for] == target_save.id && line_point_array[1][first_for] == option_id_save) {
+                                    delete_for_bool = true;
+                                    line_point_array[0][first_for] = null;
+                                    line_point_array[1][first_for] = null;
+                                }
+                                if (line_point_array[0][first_for] == option_id_save && line_point_array[1][first_for] == target_save.id) {
+                                    delete_for_bool = true;
+                                    line_point_array[0][first_for] = null;
+                                    line_point_array[1][first_for] = null;
+                                }
+                            }
+                            if (delete_for_bool == false) {
+                                line_point_array[1][line_point_array[0].length - 1] = target_save.id;
+                                line_draw_function();
+                            } else {
+                                line_point_array[0][line_point_array[0].length - 1] = null;
+                                line_point_array[1][line_point_array[0].length - 1] = null;
+                                line_draw_function();
+                            }
+
+                            line_end_onoff = false;
+                        } else {
+
+                            option_bric_able(target_save.id, $("#" + target_save.id).offset().left, $(
+                                "#" + target_save.id
+                            ).offset().top);
+                            line_draw_function()
+                        }
+
+                    }
+                }
+                event.stopPropagation();
+            }
+
+            //블럭 옮기는 기능 추가시키는 묶음 함수
+            function bric_class_add() {
+                var intance_bric_packing = document.getElementsByClassName(
+                    "intance_bric_class"
+                );
+                //존재하는 블럭 전부 가져와 이벤트 삭제하는 함수
+                for (
+                    var bric_class_add_for = 0;
+                    bric_class_add_for < intance_bric_packing.length;
+                    bric_class_add_for++
+                ) {
+                    /*
+                    intance_bric_packing[bric_class_add_for].removeEventListener(
+                        "pointerdown",
+                        pointer_start()
+                    );
+                    intance_bric_packing[bric_class_add_for].removeEventListener(
+                        "pointermove",
+                        pointer_move()
+                    );
+                    intance_bric_packing[bric_class_add_for].removeEventListener(
+                        "pointerup",
+                        pointer_up()
+                    );
+                    */
+                }
+                //존재하는 블럭 전부 가져와 이동관련 함수 부여하는 팩킹
+                for (
+                    var bric_class_add_for = 0;
+                    bric_class_add_for < intance_bric_packing.length;
+                    bric_class_add_for++
+                ) {
+                    //블럭 움직임 시작
+                    intance_bric_packing[bric_class_add_for].addEventListener(
+                        "pointerdown",
+                        pointer_start
+
+                    );
+
+                    //블럭 움직임 트랙킹
+                    intance_bric_packing[bric_class_add_for].addEventListener(
+                        "pointermove",
+                        pointer_move
+
+                    );
+                    //블럭 움직임 끝내기
+                    intance_bric_packing[bric_class_add_for].addEventListener(
+                        "pointerup",
+                        pointer_up
+
+                    );
+                }
+            }
+            var option_id_save;
+            //옵션 블럭 안보이도록 하는 함수
+            function option_bric_unable() {
+                document
+                    .getElementById("option_line")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("option_delete")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("option_text")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("size_id")
+                    .style
+                    .display = "none";
+            }
+            //옵션 블럭 보이도록 하는 함수, id 전달 기능도 있음
+            function option_bric_able(option_bric_id, option_bric_x, option_bric_Y) {
+                if (option_id_save != option_bric_id) {
+                    option_id_save = option_bric_id;
+                    document
+                        .getElementById("option_line")
+                        .style
+                        .display = "block";
+                    $("#option_line").offset({
+                        left: option_bric_x - 60
+                    });
+                    $("#option_line").offset({
+                        top: option_bric_Y - 60
+                    });
+                    document
+                        .getElementById("option_delete")
+                        .style
+                        .display = "block";
+                    $("#option_delete").offset({left: option_bric_x});
+                    $("#option_delete").offset({
+                        top: option_bric_Y - 60
+                    });
+
+                    document
+                        .getElementById("option_text")
+                        .style
+                        .display = "block";
+                    $("#option_text").offset({
+                        left: option_bric_x + 60
+                    });
+                    $("#option_text").offset({
+                        top: option_bric_Y - 60
+                    });
+                    document
+                        .getElementById("size_id")
+                        .style
+                        .display = "block";
+                    $("#size_id").offset({
+                        left: option_bric_x + $("#" + option_id_save).width()
+                    });
+                    $("#size_id").offset({
+                        top: option_bric_Y + $("#" + option_id_save).height()
+                    });
+
+                    document
+                        .getElementById("option_line")
+                        .addEventListener("click", option_line_event);
+                    document
+                        .getElementById("option_delete")
+                        .addEventListener("click", option_delete_event);
+                    document
+                        .getElementById("option_text")
+                        .addEventListener("click", option_text_event);
+                    size_bool = false;
+                    var size_X;
+                    var size_Y;
+                    var size_width;
+                    var size_height;
+                    var option_select_bric;
+                    document
+                        .getElementById("size_id")
+                        .addEventListener("pointerdown", function (event) {
+                            size_bool = true;
+                            size_X = event.clientX;
+                            size_Y = event.clientY;
+                            //console.log("pointer_smart");
+                            option_select_bric = $("#" + option_id_save);
+                            size_width = option_select_bric.width();
+                            size_height = option_select_bric.height();
+                            document
+                                .getElementById("size_id")
+                                .style
+                                .display = "none";
+                            event.preventDefault;
+                        })
+                    var size_up_X;
+                    var size_up_Y;
+                    window.addEventListener("pointermove", function (event) {
+                        if (size_bool) {
+                            size_up_X = event.clientX - size_X;
+                            size_up_Y = event.clientY - size_Y;
+                            option_select_bric = $("#" + option_id_save);
+                            option_select_bric.width(size_width + size_up_X);
+                            option_select_bric.height(size_height + size_up_Y);
+                            // console.log(size_width); console.log(event.clientX); console.log(size_X);
+                            // event.preventDefault;
+                        }
+                    })
+                    window.addEventListener("touchmove", function (event) {
+                        if (size_bool) {
+                            size_up_X = event
+                                .touches[0]
+                                .clientX - size_X;
+                            size_up_Y = event
+                                .touches[0]
+                                .clientY - size_Y;
+                            option_select_bric = $("#" + option_id_save);
+                            option_select_bric.width(size_width + size_up_X);
+                            option_select_bric.height(size_height + size_up_Y);
+                        }
+                    })
+                    window.addEventListener("pointerup", function (event) {
+                        size_bool = false;
+                        size_X = 0;
+                        size_Y = 0;
+                        size_width = 0;
+                        size_height = 0;
+                        event.preventDefault
+                    })
+                    window.addEventListener("touchend", function () {
+                        size_bool = false;
+                        size_X = 0;
+                        size_Y = 0;
+                        size_width = 0;
+                        size_height = 0;
+                        event.preventDefault
+                    })
+                } else {
+                    option_id_save = 0;
+                    document
+                        .getElementById("option_line")
+                        .removeEventListener("click", option_line_event);
+                    document
+                        .getElementById("option_delete")
+                        .removeEventListener("click", option_delete_event);
+                    document
+                        .getElementById("option_text")
+                        .removeEventListener("click", option_text_event);
+
+                    document
+                        .getElementById("option_line")
+                        .style
+                        .display = "none";
+                    document
+                        .getElementById("option_delete")
+                        .style
+                        .display = "none";
+                    document
+                        .getElementById("option_text")
+                        .style
+                        .display = "none";
+                    document
+                        .getElementById("size_id")
+                        .style
+                        .display = "none";
+                    //document.getElementById("size_id").style.display = "none";
+                }
+
+            }
+
+            //라인 그릴때 끝내기 선택을 위한 온오프
+            var option_size_bool = false;
+            var option_size_X;
+            var option_size_Y;
+
+            var line_end_onoff;
+            //옵션 블럭중 라인 연결할때 쓸 함수
+            function option_line_event() {
+                line_point_array[0][line_point_array[0].length] = option_id_save;
+                line_end_onoff = true;
+                document
+                    .getElementById("option_line")
+                    .removeEventListener("click", option_line_event);
+                document
+                    .getElementById("option_delete")
+                    .removeEventListener("click", option_delete_event);
+                document
+                    .getElementById("option_text")
+                    .removeEventListener("click", option_text_event);
+                option_bric_unable();
+                event.stopPropagation();
+            }
+            //옵션 블럭중 블럭 지우는 함수
+            function option_delete_event() {
+                //var confirm_delete = confirm("delete?"); confirm_delete
+                if (1) {
+                    for (
+                        var delete_first_array = 0;
+                        delete_first_array < line_point_array[0].length;
+                        delete_first_array++
+                    ) {
+                        if (line_point_array[0][delete_first_array] == option_id_save) {
+                            line_point_array[0][delete_first_array] = null;
+                            line_point_array[1][delete_first_array] = null;
+
+                        }
+                    }
+                    for (
+                        var delete_two_array = 0;
+                        delete_two_array < line_point_array[1].length;
+                        delete_two_array++
+                    ) {
+                        if (line_point_array[1][delete_two_array] == option_id_save) {
+                            line_point_array[0][delete_two_array] = null;
+                            line_point_array[1][delete_two_array] = null;
+                        }
+                    }
+                    for(var delete_id_array = 0;delete_id_array<id_array.length;delete_id_array++){
+                        if(id_array[delete_id_array]==option_id_save){
+                            id_array[delete_id_array]=null;
+                        }
+                    }
+                    $("#" + option_id_save).remove();
+                }
+                document
+                    .getElementById("option_line")
+                    .removeEventListener("click", option_line_event);
+                document
+                    .getElementById("option_delete")
+                    .removeEventListener("click", option_delete_event);
+                document
+                    .getElementById("option_text")
+                    .removeEventListener("click", option_text_event);
+                option_bric_unable();
+                event.stopPropagation();
+            }
+            //옵션 블럭중 글자 넣는 함수
+            function option_text_event() {
+
+                var option_text_before = document
+                    .getElementById(option_id_save)
+                    .innerHTML;
+                // var option_text_save = prompt("내용 수정", option_text_before);
+                // document.getElementById(option_id_save).innerHTML = option_text_save;
+
+                document
+                    .getElementById("option_line")
+                    .removeEventListener("click", option_line_event);
+                document
+                    .getElementById("option_delete")
+                    .removeEventListener("click", option_delete_event);
+                document
+                    .getElementById("option_text")
+                    .removeEventListener("click", option_text_event);
+
+                event.stopPropagation();
+            }
+
+            var id_array = new Array();
+            //랜덤 id생성 함수 중복 없음
+            function random_id() {
+                var intance_random_number;
+                if (id_array.length == 0) {
+                    intance_random_number = Math.floor((Math.random() * 10000) + 1);
+                    id_array[0] = intance_random_number;
+                    return intance_random_number;
+                } else {
+                    intance_random_number = Math.floor((Math.random() * 10000) + 1);
+                    while (same_number_test(intance_random_number)) {
+                        intance_random_number = Math.floor((Math.random() * 10000) + 1);
+                    }
+                    id_array[id_array.length] = intance_random_number;
+                    return intance_random_number
+                }
+            }
+            //id만들때 중복잇나 테스트 하는거
+            function same_number_test(in_number) {
+                for (
+                    var same_number_test_number = 0;
+                    same_number_test_number < id_array.length;
+                    same_number_test_number++
+                ) {
+                    if (in_number == id_array[same_number_test_number]) {
+                        return true
+                    }
+                }
+                return false
+            }
+            //라인이어줄 블럭 기억하는 배열
+            var line_point_array = new Array();
+            line_point_array[0] = new Array();
+            line_point_array[1] = new Array();
+            //작업을 위한 사전 작업 함수
+            function setting_function() {
+                document
+                    .getElementById("option_line")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("option_delete")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("option_text")
+                    .style
+                    .display = "none";
+                document
+                    .getElementById("size_id")
+                    .style
+                    .display = "none";
+            }
+            //라인 그려주는 함수
+            function line_draw_function() {
+                var line_canvas_centerX = ($("#zero_xy_id").position().left);
+                var line_canvas_centerY = ($("#zero_xy_id").position().top);
+
+                var line_canvas_test = document.querySelector("canvas");
+                if (!(line_canvas_test)) {
+                    alert("you should use another browser")
+                }
+                var ctY = line_canvas_test.getContext('2d');
+                ctY.clearRect(0, 0, line_canvas_test.width, line_canvas_test.height);
+
+                for (var line_stack = 0; line_stack < line_point_array[0].length; line_stack++) {
+
+                    if (line_point_array[0][line_stack] != null) {
+
+                        var line_startX = $("#" + line_point_array[0][line_stack])
+                            .position()
+                            .left + line_canvas_centerX + $("#" + line_point_array[0][line_stack]).width() / 2;
+                        var line_startY = $("#" + line_point_array[0][line_stack])
+                            .position()
+                            .top + line_canvas_centerY + $("#" + line_point_array[0][line_stack]).height() / 2;
+                        var line_endX = $("#" + line_point_array[1][line_stack])
+                            .position()
+                            .left + line_canvas_centerX + $("#" + line_point_array[1][line_stack]).width() / 2;
+                        var line_endY = $("#" + line_point_array[1][line_stack])
+                            .position()
+                            .top + line_canvas_centerY + $("#" + line_point_array[1][line_stack]).height() / 2;
+
+                        ctY.beginPath();
+                        ctY.moveTo(line_startX, line_startY);
+                        ctY.lineTo(line_endX, line_endY);
+                        ctY.lineWidth = 10;
+                        ctY.strokeStyle = '#482465';
+                        ctY.stroke();
+                    }
+                }
+            }
+            function canvas_center_function() {
+                var window_left_half = $(window).width() / 2;
+                var window_top_half = $(window).height() / 2;
+                var canvas_width_center = $("#canvas_id").width() / 2;
+                var canvas_height_center = $("#canvas_id").height() / 2;
+                $("#canvas_id").offset({
+                    left: window_left_half - canvas_width_center
+                });
+                $("#canvas_id").offset({
+                    top: window_top_half - canvas_height_center
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            //버튼 누를때 블럭 만드는 함수
+            function generate_bric_function() {
+                // 참조
+                // https://m.blog.naver.com/PostView.nhn?blogId=bb_&logNo=221037378486&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+                var newdiv = ""
+
+                var new_div = parent
+                    .document
+                    .createElement("div");
+                var intance_gene_id = random_id();
+                new_div.id = intance_gene_id;
+                new_div.className = "intance_bric_class"
+                new_div.contentEditable = "true";
+                new_div.innerHTML = newdiv;
+
+                parent
+                    .document
+                    .getElementById("zero_xy_id")
+                    .appendChild(new_div);
+                bric_class_add();
+
+                $('#' + new_div.id).offset({
+                    left: $(window).width() / 2
+                });
+                $('#' + new_div.id).offset({
+                    top: $(window).height() / 2
+                });
+            }
+        </script>
+    </body>
+
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type='text/javascript'>
+        //<![CDATA[
+        // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('456f42a3b070c49f8f15e21924108fe1');
+        // 카카오 로그인 버튼을 생성합니다.
+        Kakao
+            .Auth
+            .createLoginButton({
+                container: '#kakao-login-btn',
+                success: function (authObj) {
+                    // 로그인 성공시, API를 호출합니다.
+                    Kakao
+                        .API
+                        .request({
+                            url: '/v2/user/me',
+                            success: function (res) {
+                                document
+                                    .getElementById("kakao-login-btn")
+                                    .style
+                                    .display = "none";
+                                //$("#generate_bric_id").html(res.properties['nickname']);
+                                userdata_input(res.id, res.properties['nickname']);
+                                client_user_id = res.id;
+                                // alert(res.id); alert(res.properties['nickname']); alert(JSON.stringify(res));
+                            },
+                            fail: function (error) {
+                                alert(JSON.stringify(error));
+                            }
+                        });
+                },
+                fail: function (err) {
+                    alert(JSON.stringify(err));
+                }
+            });
+
+        //]]>
+    </script>
+
+    <script>
+        // 데이터 베이스 저장해야할 목록 계정 id  프로젝트 정보 or 프로젝트 만들기;      블럭 아이디 배열 가져오기(가져와야
+        // 할것)(아이디,위치, 내용, 크기); id_array document.getElementById(id_array[i]);
+        // $("#"+id).offset().left , $("#"+id).offset().left $("#"+id).html;
+        // $("#"+id).width, $("#"+id).height;      블럭 연결 배열 가져오기;
+        // line_point_array[0][몇번째선인가?]선의 시작 line_point_array[1][몇번째 선인가?]선의 끝;      블럭
+        // 연결 함수 발동 line_draw_function발동;      캔바스 위치 중향 고정; canvas_center_function();
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+<script>
+
+    // Your web app's Firebase configuration
+
+    var firebaseConfig = {
+        apiKey: "AIzaSyDJrJaQN9IyxMtXVY5NsXhQJ7zfiP91Qqw",
+        authDomain: "cyivacom.firebaseapp.com",
+        databaseURL: "https://cyivacom.firebaseio.com",
+        projectId: "cyivacom",
+        storageBucket: "cyivacom.appspot.com",
+        messagingSenderId: "738090827385",
+        appId: "1:738090827385:web:a2a9252085fd614eb2dea8"
+    };
+    // Initialize Firebase
+
+    firebase.initializeApp(firebaseConfig);
+
+    // const firebase = require("firebase"); Required for side-effects
+    // require("firebase/firestore");
+
+    var firestore = firebase.firestore();
+    /*
+        firestore
+            .collection("users").doc(client_user_id)
+            .add({first: 'you', last: 'am', born: 'i'})
+            .then(function (docRef) {
+                console.log("write id : " + docRef.id);
+            })
+            .catch(function (error) {
+                console.error("error : " + error);
+            })
+        */
+    //위에 데이터 베이스 성공 아래 데이터 베이스 갈아 엎을것
+
+    var userdata_input_bool = true;
+    function userdata_input(id, name) {
+
+        if (id != null && name != null) {
+            var equalid = 0;
+
+            firestore
+                .collection("users")
+                .doc(id.toString())
+                .get()
+                .then(function (doc) {
+                    if (doc.exists) {
+                        var dataload = doc.data();
+                        client_user_id = dataload
+                            .id
+                            console
+                            .log("기존 사용자입니다.")
+                    } else {
+                        console.log("no such");
+                        console.log("신규 사용자를 등록합니다.")
+                        firestore
+                            .collection("users")
+                            .doc(id.toString())
+                            .set({id: id, name: name})
+                        client_user_id = id;
+                    }
+                })
+            //https://firebase.google.com/docs/database/web/read-and-write?hl=ko
+        }
+
+    }
+    function project_save() {
+        if (client_name != null) {
+
+            for (var save_array = id_array.length - 1; save_array > -1; save_array--) {
+
+                firestore
+                    .collection("users")
+                    .doc(client_user_id.toString())
+                    .collection("project_packege")
+                    .doc(client_name)
+                    .set({title: client_name})
+
+            }
+
+            for (var save_array = id_array.length - 1; save_array > -1; save_array--) {
+
+                if (id_array[save_array] != null) {
+                    firestore
+                        .collection("users")
+                        .doc(client_user_id.toString())
+                        .collection("project_packege")
+                        .doc(client_name)
+                        .collection("bric_value")
+                        .doc(id_array[save_array].toString())
+                        .set({
+                            id: id_array[save_array],
+                            width: $('#' + id_array[save_array]).width(),
+                            height: $('#' + id_array[save_array]).height(),
+                            X: $('#' + id_array[save_array])
+                                .position()
+                                .left,
+                            Y: $('#' + id_array[save_array])
+                                .position()
+                                .top,
+                            text: $('#' + id_array[save_array]).html()
+                        })
+                }
+
+            }
+            for (
+                var save_line_array = line_point_array[0].length - 1;
+                save_line_array > -1;
+                save_line_array--
+            ) {
+                firestore
+                    .collection("users")
+                    .doc(client_user_id.toString())
+                    .collection("project_packege")
+                    .doc(client_name)
+                    .collection("line_value")
+                    .doc(
+                        line_point_array[0][save_line_array] + '_' + line_point_array[1][save_line_array]
+                    )
+                    .set(
+                        {start: line_point_array[0][save_line_array], end: line_point_array[1][save_line_array]
+                        }
+                    )
+
+            }
+        } else {
+            alert("client name input");
+        }
+
+    }
+    var load_title = new Array();
+    function project_load() {
+        var loadtitle_number = 0;
+        firestore
+            .collection("users")
+            .doc(client_user_id.toString())
+            .collection("project_packege")
+            .get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    load_title[loadtitle_number] = doc
+                        .data()
+                        .title;
+                    loadtitle_number++;
+                })
+            })
+            .then(function () {
+                $("#loadlistID").empty();
+
+                for (
+                    var titleload_count = 0;
+                    titleload_count < loadtitle_number;
+                    titleload_count++
+                ) {
+
+                    var new_div = parent
+                        .document
+                        .createElement("option");
+                    new_div.value = load_title[titleload_count];
+                    new_div.innerHTML = load_title[titleload_count];
+
+                    parent
+                        .document
+                        .getElementById("loadlistID")
+                        .appendChild(new_div);
+
+                }
+            })
+    }
+    function project_bric_load(title) {
+        id_array = new Array;
+        client_name = title;
+        firestore
+            .collection("users")
+            .doc(client_user_id.toString())
+            .collection("project_packege")
+            .doc(title)
+            .collection("bric_value")
+            .get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+
+                    var bric_create = parent
+                        .document
+                        .createElement("div");
+                    bric_create.className = "intance_bric_class"
+                    bric_create.contentEditable = "true";
+
+                    bric_create.innerHTML = doc
+                        .data()
+                        .text;
+                    bric_create.id = doc
+                        .data()
+                        .id;
+
+                    parent
+                        .document
+                        .getElementById("zero_xy_id")
+                        .appendChild(bric_create);
+                    $("#" + doc.data().id).offset({
+                        left: doc
+                            .data()
+                            .X + $("#zero_xy_id")
+                            .position()
+                            .left
+                    });
+                    $("#" + doc.data().id).offset({
+                        top: doc
+                            .data()
+                            .Y + $("#zero_xy_id")
+                            .position()
+                            .top
+                    });
+                    $("#" + doc.data().id).width(doc.data().width);
+                    $("#" + doc.data().id).height(doc.data().height);
+
+                    id_array[id_array.length] = doc
+                        .data()
+                        .id
+
+                        console
+                        .log("load");
+                })
+            })
+        line_point_array = new Array;
+        line_point_array[0] = new Array;
+        line_point_array[1] = new Array;
+        var line_count_load = 0;
+        firestore
+            .collection("users")
+            .doc(client_user_id.toString())
+            .collection("project_packege")
+            .doc(title)
+            .collection("line_value")
+            .get()
+            .then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    line_point_array[0][line_count_load] = doc
+                        .data()
+                        .start;
+                    line_point_array[1][line_count_load] = doc
+                        .data()
+                        .end;
+                    line_count_load++
+                })
+            })
+            .then(function () {
+                bric_class_add();
+                line_draw_function();
+            })
+    }
+    function project_delete(title) {
+        firestore
+            .collection("users")
+            .doc(client_user_id.toString())
+            .collection("project_packege")
+            .doc(title)
+            .delete()
+            .then(function () {})
+    }
+    function canvas_scale_minus() {
+        var bric_packing = document.getElementsByClassName("intance_bric_class");
+        for (
+            var bric_array_count = 0;
+            bric_array_count < bric_packing.length;
+            bric_array_count++
+        ) {
+            var now_bric_id = bric_packing[bric_array_count].id;
+            $("#" + now_bric_id).width($("#" + now_bric_id).width() * 10 / 11);
+            $("#" + now_bric_id).height($("#" + now_bric_id).height() * 10 / 11);
+            $("#" + now_bric_id).offset({
+                left: ($("#" + now_bric_id).position().left) * 10 / 11 + $("#zero_xy_id")
+                    .offset()
+                    .left
+            });
+            $("#" + now_bric_id).offset({
+                top: ($("#" + now_bric_id).position().top) * 10 / 11 + $("#zero_xy_id")
+                    .offset()
+                    .top
+            });
+        }
+        line_draw_function();
+        console.log("scale minus");
+    }
+    function canvas_scale_plus() {
+        var bric_packing = document.getElementsByClassName("intance_bric_class");
+        for (
+            var bric_array_count = 0;
+            bric_array_count < bric_packing.length;
+            bric_array_count++
+        ) {
+            var now_bric_id = bric_packing[bric_array_count].id;
+            $("#" + now_bric_id).width($("#" + now_bric_id).width() * 11 / 10);
+            $("#" + now_bric_id).height($("#" + now_bric_id).height() * 11 / 10);
+            $("#" + now_bric_id).offset({
+                left: ($("#" + now_bric_id).position().left) * 11 / 10 + $("#zero_xy_id")
+                    .offset()
+                    .left
+            });
+            $("#" + now_bric_id).offset({
+                top: ($("#" + now_bric_id).position().top) * 11 / 10 + $("#zero_xy_id")
+                    .offset()
+                    .top
+            });
+        }
+        line_draw_function();
+        console.log("scale plus");
+        
+    }
+</script>
+</html>
